@@ -239,6 +239,34 @@ STRATEGIES = {
 }
 
 
+def register_strategy(name, signal, optimize, kind="custom", params=""):
+    """
+    Add a strategy to the registry so validate.py, crossmarket.py,
+    mcpt_multi.py and propfirm.py can use it by name.
+
+    signal(close, params) -> np.ndarray of positions, same length as close
+    optimize(close, objective_func=None) -> (best_params, best_obj, best_sig)
+
+    Both must be module-level functions (picklable for the process pool)
+    and must not look ahead: the position at bar t may only use data up to
+    and including bar t.
+    """
+    STRATEGIES[name] = {"signal": signal, "optimize": optimize,
+                        "kind": kind, "params": params}
+
+
+def load_user_strategies():
+    """
+    Import user_strategies.py (if present next to this file) so that the
+    register_strategy() calls in it populate the registry. See
+    user_strategies_template.py.
+    """
+    try:
+        import user_strategies  # noqa: F401  (registers on import)
+    except ImportError:
+        pass
+
+
 if __name__ == "__main__":
     # Quick self-check: run each strategy's optimizer on real BTC data.
     from data_loader import load

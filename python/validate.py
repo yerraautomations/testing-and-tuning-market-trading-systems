@@ -29,7 +29,10 @@ import numpy as np
 from data_loader import load
 from strategies_library import (
     STRATEGIES, opt_for_insample, opt_for_walkforward, signal_for_walkforward,
+    load_user_strategies,
 )
+
+load_user_strategies()   # picks up user_strategies.py if you created one
 from objectives import profit_factor, sharpe_ratio, get_strategy_returns
 from mcpt import walkforward_signal
 from mcpt_fast import insample_mcpt_parallel, walkforward_mcpt_parallel

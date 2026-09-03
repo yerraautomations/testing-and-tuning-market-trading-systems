@@ -136,6 +136,143 @@ def load_csv(path):
     return df[["Open", "High", "Low", "Close"]]
 
 
+def load_mt5(path, tz="UTC"):
+    """
+    Load an MT5-style bar export (MetaTrader 5 "Export bars" or
+    QuantDataManager "Export to MT5 data").
+
+    Handles tab / comma / semicolon delimiters; headers written as
+    <DATE> <TIME> <OPEN> <HIGH> <LOW> <CLOSE> <TICKVOL> <VOL> <SPREAD> or
+    without angle brackets or with no header at all; a combined DateTime
+    column; optional volume and spread columns.
+
+    Parameters
+    ----------
+    path : str
+    tz : str
+        Timezone the timestamps were exported in (we recommend exporting in
+        UTC). The result is always indexed in UTC.
+
+    Returns
+    -------
+    pd.DataFrame indexed by UTC datetime with Open, High, Low, Close and,
+    when present, Volume and Spread (spread in points, as exported).
+    """
+    import csv
+
+    with open(path, "r", encoding="utf-8-sig") as f:
+        sample = f.read(4096)
+    try:
+        sep = csv.Sniffer().sniff(sample, delimiters="\t,;").delimiter
+    except csv.Error:
+        sep = "\t" if "\t" in sample else ","
+    first_line = sample.splitlines()[0]
+    has_header = any(ch.isalpha() for ch in first_line)
+
+    df = pd.read_csv(path, sep=sep, header=0 if has_header else None,
+                     encoding="utf-8-sig")
+    if has_header:
+        cols = [str(c).strip().strip("<>").strip().lower() for c in df.columns]
+    else:
+        layouts = {
+            9: ["date", "time", "open", "high", "low", "close",
+                "tickvol", "vol", "spread"],
+            8: ["date", "time", "open", "high", "low", "close",
+                "tickvol", "vol"],
+            7: ["date", "time", "open", "high", "low", "close", "tickvol"],
+            6: ["date", "time", "open", "high", "low", "close"],
+            5: ["datetime", "open", "high", "low", "close"],
+        }
+        if df.shape[1] not in layouts:
+            raise ValueError(f"Unrecognized headerless layout with "
+                             f"{df.shape[1]} columns in {path}")
+        cols = layouts[df.shape[1]]
+    df.columns = cols
+
+    if "date" in cols and "time" in cols:
+        ts = df["date"].astype(str) + " " + df["time"].astype(str)
+    elif "datetime" in cols:
+        ts = df["datetime"].astype(str)
+    elif "date" in cols:
+        ts = df["date"].astype(str)
+    else:
+        ts = df.iloc[:, 0].astype(str)
+
+    idx = None
+    for fmt in ("%Y.%m.%d %H:%M:%S", "%Y.%m.%d %H:%M", "%Y-%m-%d %H:%M:%S",
+                "%Y-%m-%d %H:%M", "%Y.%m.%d", "%Y-%m-%d"):
+        try:
+            idx = pd.to_datetime(ts, format=fmt)
+            break
+        except (ValueError, TypeError):
+            continue
+    if idx is None:
+        idx = pd.to_datetime(ts)
+    idx = pd.DatetimeIndex(idx)
+    if idx.tz is None:
+        idx = idx.tz_localize(tz)
+    idx = idx.tz_convert("UTC")
+
+    out = pd.DataFrame({
+        "Open": df["open"].astype(float).values,
+        "High": df["high"].astype(float).values,
+        "Low": df["low"].astype(float).values,
+        "Close": df["close"].astype(float).values,
+    }, index=idx)
+    for vcol in ("volume", "vol", "tickvol"):
+        if vcol in cols:
+            out["Volume"] = df[vcol].astype(float).values
+            break
+    if "spread" in cols:
+        out["Spread"] = df["spread"].astype(float).values
+    out.index.name = "Date"
+    out = out[~out.index.duplicated(keep="last")].sort_index()
+    return out
+
+
+_OHLC_AGG = {"Open": "first", "High": "max", "Low": "min", "Close": "last"}
+
+
+def resample_ohlc(df, rule="1h", offset=None):
+    """
+    Resample M1 (or any) bars to a coarser timeframe: '5min', '15min', '1h',
+    '4h', '1D'. `offset` shifts the bin boundaries (e.g. offset='22h' with
+    rule='1D' gives daily bars that roll at 22:00 UTC).
+    """
+    agg = dict(_OHLC_AGG)
+    if "Volume" in df:
+        agg["Volume"] = "sum"
+    if "Spread" in df:
+        agg["Spread"] = "mean"
+    # pandas ignores `offset` for calendar-day rules; express days in hours.
+    if offset is not None and rule.strip().upper().endswith("D"):
+        n_days = int(rule.strip()[:-1] or 1)
+        rule = f"{24 * n_days}h"
+    out = df.resample(rule, offset=offset, label="left", closed="left").agg(agg)
+    return out.dropna(subset=["Open"])
+
+
+def resample_daily_session(df, tz="America/New_York", session_start_hour=17):
+    """
+    Daily bars that roll at a wall-clock hour in a given timezone, DST-aware.
+    The default (17:00 New York) is the FX-market "trading day" convention
+    that brokers on GMT+2/+3 server time reproduce. The index is the
+    session's opening timestamp in `tz`.
+    """
+    local = df.tz_convert(tz)
+    shifted = local.copy()
+    shifted.index = shifted.index - pd.Timedelta(hours=session_start_hour)
+    agg = dict(_OHLC_AGG)
+    if "Volume" in df:
+        agg["Volume"] = "sum"
+    if "Spread" in df:
+        agg["Spread"] = "mean"
+    daily = shifted.resample("1D").agg(agg).dropna(subset=["Open"])
+    daily.index = daily.index + pd.Timedelta(hours=session_start_hour)
+    daily.index.name = "Date"
+    return daily
+
+
 def list_datasets():
     """Print available built-in datasets and their cache status."""
     print("Available datasets:")
