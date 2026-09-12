@@ -30,9 +30,9 @@ python verify_fast.py                     # proves fast == original code
 ## The pipeline
 
 ```
-data_loader ──> strategies_library ──> validate (4 steps) ──> mcpt_multi ──> crossmarket
-                      │                                                          │
-                      └────────────> sizing ──> propfirm (P(pass), sweep) <──────┘
+data_loader â”€â”€> strategies_library â”€â”€> validate (4 steps) â”€â”€> mcpt_multi â”€â”€> crossmarket
+                      â”‚                                                          â”‚
+                      â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€> sizing â”€â”€> propfirm (P(pass), sweep) <â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ### The 4 validation steps (`validate.py`)
@@ -129,3 +129,4 @@ Store everything in **UTC**; apply session and daily-reset boundaries in code.
 | `data_loader.py` | Data fetching, caching, MT5/QDM loading, resampling |
 | `verify_fast.py` | Equivalence proof for the fast path |
 | `example_donchian.py` | Original synthetic-data walkthrough |
+| `to_optimizer.py` | Bridge: platform signals -> optimizer strategies / databank (see `portfolio_optimizer/headless.py`) |

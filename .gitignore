@@ -8,3 +8,6 @@ portfolio_optimizer/dist/
 portfolio_optimizer/desktop-app/node_modules/
 portfolio_optimizer/desktop-app/dist/
 portfolio_optimizer/desktop-app/src-tauri/target/
+
+# Portfolio optimizer generated output (headless.py)
+portfolio_optimizer/reports/
