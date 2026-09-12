@@ -1,3 +1,5 @@
 __pycache__/
 *.pyc
 reports/
+data/raw/          # your local tick / M1 exports (large; never committed)
+user_strategies.py # your private strategies (commit deliberately if you want)
