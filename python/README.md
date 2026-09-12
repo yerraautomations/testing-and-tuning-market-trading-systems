@@ -30,9 +30,9 @@ python verify_fast.py                     # proves fast == original code
 ## The pipeline
 
 ```
-data_loader â”€â”€> strategies_library â”€â”€> validate (4 steps) â”€â”€> mcpt_multi â”€â”€> crossmarket
-                      â”‚                                                          â”‚
-                      â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€> sizing â”€â”€> propfirm (P(pass), sweep) <â”€â”€â”€â”€â”€â”€â”˜
+data_loader Ã¢â€â‚¬Ã¢â€â‚¬> strategies_library Ã¢â€â‚¬Ã¢â€â‚¬> validate (4 steps) Ã¢â€â‚¬Ã¢â€â‚¬> mcpt_multi Ã¢â€â‚¬Ã¢â€â‚¬> crossmarket
+                      Ã¢â€â€š                                                          Ã¢â€â€š
+                      Ã¢â€â€Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬> sizing Ã¢â€â‚¬Ã¢â€â‚¬> propfirm (P(pass), sweep) <Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€Ëœ
 ```
 
 ### The 4 validation steps (`validate.py`)
@@ -130,3 +130,8 @@ Store everything in **UTC**; apply session and daily-reset boundaries in code.
 | `verify_fast.py` | Equivalence proof for the fast path |
 | `example_donchian.py` | Original synthetic-data walkthrough |
 | `to_optimizer.py` | Bridge: platform signals -> optimizer strategies / databank (see `portfolio_optimizer/headless.py`) |
+| `instruments.py` | Instrument profiles (forex / futures / crypto): costs, contract math, bars per year (`config/instruments.json`) |
+| `bank.py` | Strategy bank: folders of passing strategies, criteria, run log, databank export |
+| `gate.py` | The full gate for one strategy (IS MCPT, walk-forward, WF MCPT, lockbox, cross-market, prop-firm sim) and Tier B for MT5 reports |
+| `pipeline.py` | Config-driven run: all strategies through the gate, multiple-system correction, criteria, bank, optimizer |
+| `parity.py` | Trade-by-trade comparison of an MT5 EA report with its Python port |

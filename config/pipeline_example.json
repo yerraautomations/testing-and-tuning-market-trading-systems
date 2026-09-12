@@ -1,0 +1,45 @@
+{
+  "_comment": "Example pipeline config. Copy, rename, edit. Paths are relative to python/. Run: python pipeline.py --config ../config/pipeline_example.json",
+  "run_name": "btc_daily_demo",
+  "dataset": {"name": "BTC"},
+  "timeframe": "1D",
+  "instrument": "BTC",
+  "rules": "FTMO 2-Step",
+  "rules_overrides": {"account_size": 100000},
+  "strategies": ["momentum", "donchian", "ma_cross", "rsi", "bollinger"],
+  "extra_markets": [],
+  "lockbox_years": 2,
+  "criteria": {
+    "max_is_p": 0.01,
+    "max_corrected_p": 0.01,
+    "max_wf_p": 0.05,
+    "min_wf_pf": 1.0,
+    "min_lockbox_pf": 1.0,
+    "min_p_pass": 0.2,
+    "min_trades": 30,
+    "min_markets_passed": null
+  },
+  "gate": {
+    "train_frac": 0.7,
+    "train_bars": 1000,
+    "train_step": 126,
+    "is_perms": 300,
+    "wf_perms": 200,
+    "xm_perms": 100,
+    "horizon": 365,
+    "n_sims": 1000,
+    "target_vol_sigmas": 4.0,
+    "cost_stress": 1.0
+  },
+  "bank_folder": "auto/btc_daily_demo",
+  "mt5_reports": [],
+  "optimizer": {
+    "run": true,
+    "min_strategies": 2,
+    "max_strategies": 4,
+    "max_per_symbol": 4,
+    "max_correlation": 0.8,
+    "keep_top": 20,
+    "export_top": 2
+  }
+}

@@ -160,11 +160,8 @@ def signal_to_strategy(name, symbol, timeframe, signal, prices, index,
 
 def export_databank(strategies, name, locked=()):
     """Save strategies as portfolio_optimizer/databanks/<name>.json."""
-    import warnings, logging
-    warnings.filterwarnings("ignore")
-    logging.disable(logging.WARNING)
-    import streamlit_app as app   # bare-mode import (no UI runs)
-    return app.save_databank(name, list(strategies), set(locked))
+    from bank import write_databank, OPT_DIR
+    return write_databank(OPT_DIR / "databanks" / f"{name}.json", list(strategies), set(locked))
 
 
 def summarize(strategies):

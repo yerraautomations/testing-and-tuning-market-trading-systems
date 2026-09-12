@@ -11,3 +11,7 @@ portfolio_optimizer/desktop-app/src-tauri/target/
 
 # Portfolio optimizer generated output (headless.py)
 portfolio_optimizer/reports/
+
+# Strategy bank and workbench state are local data (back up separately)
+strategy_bank/
+app/last_config.json
