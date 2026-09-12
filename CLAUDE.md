@@ -32,6 +32,10 @@ Branch for all work: `claude/explore-trading-systems-FbLc0`.
   caches are `python/data/*_M1.csv` (git-ignored, rebuilt by `load_ticks`).
 - Big files: never `Get-Content` a multi-GB CSV to count lines; stream it in
   Python instead.
+- Anything that uses a process pool (mcpt_fast, mcpt_multi, gate, pipeline,
+  headless) must be run from a **script file**, never via `python -` /
+  stdin: Windows spawn re-runs the main script in each worker and dies on
+  `<stdin>`, leaving the parent hung.
 - git identity is set repo-locally; `git push` needs the user's interactive
   GitHub login (run it in their own PowerShell window).
 - Never import `portfolio_optimizer/streamlit_app.py` from inside a Streamlit
