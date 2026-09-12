@@ -1,0 +1,62 @@
+# Trade Copier Configuration (TEMPLATE -- safe to commit)
+# =======================================================
+# Real credentials go in config/settings.local.yaml (git-ignored), which
+# overrides this file key by key, or in environment variables:
+#   TC_SLAVE_PASSWORD, TC_SLAVE_EMAIL, TC_MT5_PASSWORD
+
+master:
+  platform: mt5
+  terminal_path: null          # e.g. "C:/Program Files/Darwinex MetaTrader 5 Forex/terminal64.exe"
+  account: null                # leave null to use the terminal's current login
+  password: null
+  server: null
+  poll_interval_ms: 250
+
+slaves:
+  - name: "InstantFunding"
+    platform: matchtrader
+    enabled: true
+    server: "https://platform.instantfunding.com"
+    email: "you@example.com"
+    password: ""               # set in settings.local.yaml or TC_SLAVE_PASSWORD
+    account_number: ""
+    use_browser: true          # browser session + the platform's own web calls
+
+    symbol_suffix: ".x"
+    symbol_mapping:
+      GDAXI: GER30
+      WS30: US30
+      NDX: US100
+    auto_symbol_mapping: true
+
+    volume_mode: "multiplier"  # multiplier | fixed | ratio
+    lot_multiplier: 0.5
+    fixed_lot: 0.01
+
+    copy_tp: false
+    copy_sl: false
+    reverse_trades: false
+
+    symbol_whitelist: []
+    symbol_blacklist: []
+    magic_number_whitelist: []
+    magic_number_blacklist: []
+
+    protection:
+      enabled: false
+      min_balance: 0
+      max_balance: 0
+      max_daily_loss: 0
+      max_drawdown_percent: 0
+
+logging:
+  level: INFO
+  file: "logs/copier.log"
+  max_size_mb: 10
+  backup_count: 5
+
+notifications:
+  enabled: false
+  discord_webhook: ""
+  telegram_bot_token: ""
+  telegram_chat_id: ""

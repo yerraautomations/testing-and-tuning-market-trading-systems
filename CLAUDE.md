@@ -15,6 +15,16 @@ This file is the hand-off of a long design conversation. Read it first.
   Builder). Launch with `Launch_App.bat` or `streamlit run app/Home.py`.
 - `config/`: `propfirms.json` (rule presets), `instruments.json` (profiles),
   `pipeline_example.json` (a pipeline config to copy).
+- `trade_copier/`: the user's own MT5 -> MatchTrader trade copier (built to
+  avoid paid copiers). Engine rebuilt 2026-09-12 (verified opens/closes,
+  disk state, restart reconciliation, dry-run, 17 pytest tests). The slave
+  web adapter is built from a network recording of the platform
+  (`tools/record_session.py`); until the user records a session,
+  `forex/matchtrader_web.py` does not exist and browser slaves refuse to
+  start. Real credentials live in `config/settings.local.yaml` (ignored);
+  never echo them. Master terminals on this PC: Darwinex MT5, OANDA MT5.
+  Prop firm target: InstantFunding (MatchTrader, API blocked, live account
+  120124). Never place trades on that live account from a session.
 - `strategy_bank/` (git-ignored, local data): folders of strategies that
   PASSED the gate, plus `_runs.csv` (every attempt) and `_runs/*.json`.
 

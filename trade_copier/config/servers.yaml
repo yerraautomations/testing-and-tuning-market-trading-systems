@@ -1,0 +1,143 @@
+# MatchTrader Prop Firm Server Database
+# =====================================
+# Last updated: 2026-01-18
+# Source: HeronCopier server list
+
+matchtrader_servers:
+  # Demo/Test
+  - name: "Match-Trader Demo"
+    url: "https://demo.match-trader.com"
+
+  # A
+  - name: "Alpha Trader Firm"
+    url: "https://prop.alphatraderfirm.com"
+  - name: "AquaFunded"
+    url: "https://platform.aquafunded.com"
+  - name: "Axis Funded"
+    url: "https://login.axisfunded.com"
+
+  # B
+  - name: "BlueGuardian"
+    url: "https://platform.blueguardian.com"
+
+  # C
+  - name: "CB Technologies"
+    url: "https://platform.cb-technologies.com"
+  - name: "City Traders Imperium"
+    url: "https://platform.citytradersimperium.com"
+  - name: "CoreFunded"
+    url: "https://match.corefunded.io"
+
+  # D
+  - name: "David James Markets"
+    url: "https://platform.davidjamesmarkets.com"
+
+  # E
+  - name: "E8 Markets"
+    url: "https://mtr.e8markets.com"
+  - name: "Equity Edge"
+    url: "https://platform.equityedge.co.uk"
+
+  # F
+  - name: "Finotive Funding"
+    url: "https://platform.finotivefunding.com"
+  - name: "Forex Prop Firm"
+    url: "https://platform.forexpropfirm.com"
+  - name: "FTUK"
+    url: "https://mtt.ftuk.com"
+  - name: "FundedNext"
+    url: "https://platform.fundednext.com"
+  - name: "FundedSquad"
+    url: "https://mtr.fundedsquad.com"
+  - name: "Funded Trader Markets"
+    url: "https://platform.fundedtradermarkets.com"
+  - name: "Funding Frontier"
+    url: "https://platform.fundingfrontier.com"
+  - name: "FundingPips"
+    url: "https://mtr-platform.fundingpips.com"
+  - name: "Funding Your Trades"
+    url: "https://platform.fundingyourtrades.com"
+  - name: "FundYourFX"
+    url: "https://platform.fundyourfx.com"
+
+  # G
+  - name: "GetFundedNow"
+    url: "https://platform.getfundednow.com"
+  - name: "GoatFundedTrader"
+    url: "https://mtr.goatfundedtrader.com"
+  - name: "Gold Funding"
+    url: "https://prop.goldfunding.io"
+  - name: "GooeyTrade"
+    url: "https://mtr.gooeytrade.com"
+
+  # I
+  - name: "InstantFunding"
+    url: "https://platform.instantfunding.com"
+
+  # L
+  - name: "Lux Trading Firm"
+    url: "https://mt.luxtradingfirm.com"
+
+  # M
+  - name: "Maven Markets"
+    url: "https://manager.maven.markets"
+  - name: "MyCryptoFunding"
+    url: "https://platform.mycryptofunding.org"
+  - name: "MyFundedFX"
+    url: "https://match.myfundedfx.com"
+  - name: "MyFXPocket"
+    url: "https://platform.myfxpocket.com"
+
+  # N
+  - name: "NextLevelFunded"
+    url: "https://platform.nextlevelfunded.com"
+
+  # O
+  - name: "OFP Funding"
+    url: "https://platform.ofpfunding.com"
+
+  # P
+  - name: "PaidToTrade"
+    url: "https://platform.paidtotrade.net"
+  - name: "Pipstone Capital"
+    url: "https://prop.pipstonecapital.com"
+  - name: "Pivex"
+    url: "https://platform.pivex.com"
+  - name: "PropFintech"
+    url: "https://prop.propfintech.com"
+  - name: "PropNimbus"
+    url: "https://nimplatform.propnimbus.com"
+  - name: "PropNumberOne"
+    url: "https://mtr.propnumberone.com"
+
+  # S
+  - name: "SFX Funded"
+    url: "https://mt.sfxfunded.com"
+  - name: "SureLeverageFunding"
+    url: "https://platform.sureleveragefunding.com"
+  - name: "SwissFunded"
+    url: "https://match.swissfunded.io"
+
+  # T
+  - name: "The5ers"
+    url: "https://mtr.the5ers.com"
+  - name: "3DM Trading"
+    url: "https://platform.3dmtrading.com"
+  - name: "TigerFunded"
+    url: "https://platform.tigerfunded.com"
+  - name: "TopOneTrader"
+    url: "https://platform.toponetrader.com"
+  - name: "TX3 Funding"
+    url: "https://mtr.tx3funding.com"
+
+  # V
+  - name: "VoyageMarkets"
+    url: "https://mtr.voyagemarkets.net"
+
+  # W
+  - name: "WeMasterTrade"
+    url: "https://mtr.wemastertrade.com"
+
+  # X
+  - name: "XpertFunding"
+    url: "https://mtr.xpertfunding.pro"

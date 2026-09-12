@@ -15,3 +15,10 @@ portfolio_optimizer/reports/
 # Strategy bank and workbench state are local data (back up separately)
 strategy_bank/
 app/last_config.json
+
+# Trade copier: credentials, browser profile, recordings, runtime state
+trade_copier/config/settings.local.yaml
+trade_copier/browser_profile/
+trade_copier/recordings/
+trade_copier/logs/
+trade_copier/state/
