@@ -12,6 +12,16 @@ This file is the hand-off of a long design conversation. Read it first.
 
 Branch for all work: `claude/explore-trading-systems-FbLc0`.
 
+## Where the work happens now (local Windows)
+
+- The repo is cloned at `C:\Users\abeny\testing-and-tuning-market-trading-systems`
+  and Claude Code runs locally from that folder (Python 3.12, pandas 3.x,
+  Windows 10, PowerShell). The earlier cloud sandbox is retired.
+- Raw exports live in `python/data/raw/` (git-ignored). Tick-derived bar
+  caches are `python/data/*_M1.csv` (git-ignored, rebuilt by `load_ticks`).
+- Big files: never `Get-Content` a multi-GB CSV to count lines; stream it in
+  Python instead.
+
 ## The user's goal
 
 Pass prop-firm challenges (FTMO first; futures or forex, either is fine),
@@ -46,15 +56,30 @@ plug them in via `python/user_strategies.py` (see
 
 - Store all bar data in **UTC**. Apply session boundaries and the prop-firm
   daily reset (FTMO: CE(S)T calendar day) in code, never baked into files.
-- The user downloads data with **QuantDataManager** (Dukascopy M1 for the 7
-  majors back to 2003; broker profiles use EETUS = GMT+2/+3 with US DST).
-  Agreed export settings: All time, M1, fixed ~1 pip spread, target
-  timezone UTC. `data_loader.load_mt5()` reads MT5-style bar exports.
-- The user also has an **FTMO tick export** (`...EURUSD_FTMO-TICK-...`).
-  A tick loader (time, bid, ask -> M1 bid OHLC + per-bar spread) is the next
-  thing to build; ticks give FTMO's *actual* spread.
+- **FTMO tick export** (`python/data/raw/2026.9.2EURUSD_FTMO-TICK-EURUSD_ftmo.csv`,
+  12 GB, 278.6M ticks, 2016-07-04 .. 2026-08-28): columns
+  `DateTime,Bid,Ask,Volume`, timestamps `YYYYMMDD HH:MM:SS.fff` in **broker
+  time** (GMT+2/+3 switching on US DST = New York + 7h; verified: every
+  weekend gap is Fri 23:59 -> Mon 00:00). `data_loader.load_ticks(path)`
+  streams it into 3.78M **M1 bid bars with per-bar spread** (mean/min/max/
+  close), converts to UTC and caches to `python/data/<stem>_M1.csv`.
+  Coverage is complete (~373k bars per full year; only holiday gaps).
+- QuantDataManager Dukascopy M1 exports for the 7 majors (2003+) are the
+  research history. Agreed export settings: All time, M1, fixed ~1 pip
+  spread, target timezone UTC. `data_loader.load_mt5()` reads them.
 - Built-in cached datasets: `python/data/BTC.csv` (daily close-only,
   2010-2026; Open=High=Low=Close by design) and `AAPL.csv` (daily OHLC).
+
+## FTMO EUR/USD spread facts (measured from the ticks, in pips)
+
+- Tick-weighted median **0.30**, p75 0.39, p90 0.50, p99 1.35; mean 0.35.
+  A fixed 1-pip assumption is ~3x too pessimistic for EUR/USD at FTMO;
+  use the per-bar `Spread` column as the 1x baseline and stress 2x / 3x.
+- By session (UTC): London 07-11 and overlap 12-16 ~0.29 mean; Asia 0.35;
+  NY afternoon 0.33; **rollover 21:00-23:59 mean ~1.0, hour 21 mean 1.5 /
+  p90 3.4**. Avoid entering or holding pending orders through 21:00-23:00
+  UTC. Holiday sessions (Christmas, New Year) show 20-34 pip spreads.
+- 3.5% of minutes average > 1 pip; 0.45% have a max > 5 pips.
 
 ## State of the platform (all tested on real data)
 
@@ -70,7 +95,9 @@ plug them in via `python/user_strategies.py` (see
 | Volatility targeting | `sizing.py` | done |
 | JSON export + PNG plots | `report.py` | done |
 | MT5/QDM bar loader, resampling (incl. 17:00 NY sessions) | `data_loader.py` | done, tested on synthetic MT5 files only |
-| Tick loader (bid/ask -> bars + spread) | -- | **next** |
+| Tick loader (bid/ask -> M1 bars + spread) + `spread_report` | `data_loader.load_ticks` | **done, run on the real 12 GB FTMO file** |
+| Per-bar spread in the cost model (`propfirm.CostModel` takes one constant) | -- | **next** |
+| Load the Dukascopy M1 majors, then plug in the user's strategies | -- | next |
 | Drawdown-aware cut-off in sizing (vol-targeting shifts failures to max-loss) | -- | planned |
 
 Key demo results (BTC, momentum, walk-forward OOS): at 1x leverage FTMO
@@ -87,14 +114,15 @@ python mcpt_multi.py
 python crossmarket.py momentum BTC AAPL
 python propfirm.py
 python sizing.py
+python data_loader.py ticks data/raw/<tick file>.csv   # build/reuse M1 cache + spread report (~8 min for 12 GB)
 ```
 
-Environment notes: the cloud sandbox firewalls exchange APIs but allows
-GitHub; locally none of that applies. A `checkpoint-before-speedup` git tag
-marks the state before the fast path was added.
+A `checkpoint-before-speedup` git tag marks the state before the fast path
+was added.
 
 ## Working style the user prefers
 
 Concise, honest, decisive recommendations; keep originals intact and changes
 reversible; test in the terminal and report real outputs; ask for the exact
-data format before writing a loader.
+data format before writing a loader. The user is new to terminals: give
+step-by-step commands and say what the output should look like.

@@ -3,3 +3,4 @@ __pycache__/
 reports/
 data/raw/          # your local tick / M1 exports (large; never committed)
 user_strategies.py # your private strategies (commit deliberately if you want)
+data/*_M1.csv     # tick-derived bar caches (large; rebuild with load_ticks)
