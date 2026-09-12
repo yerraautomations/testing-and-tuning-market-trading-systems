@@ -78,7 +78,7 @@ def insample_mcpt_parallel(data, optimize_func, objective_func=None,
     dict with keys: p_value, real_objective, perm_objectives, count_better.
     """
     if n_jobs is None:
-        n_jobs = os.cpu_count()
+        n_jobs = min(os.cpu_count() or 1, 61)  # Windows caps process pools at 61 workers
 
     # Real optimization (same as serial).
     real_obj, _ = optimize_func(data)
@@ -157,7 +157,7 @@ def walkforward_mcpt_parallel(data, optimize_func, signal_func, objective_func,
     count_better.
     """
     if n_jobs is None:
-        n_jobs = os.cpu_count()
+        n_jobs = min(os.cpu_count() or 1, 61)  # Windows caps process pools at 61 workers
 
     # Real walk-forward (same as serial).
     real_signal = walkforward_signal(data, optimize_func, signal_func,

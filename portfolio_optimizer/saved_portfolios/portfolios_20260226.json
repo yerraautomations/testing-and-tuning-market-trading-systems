@@ -1,0 +1,619 @@
+{
+  "saved_at": "2026-02-28T17:01:01.262930",
+  "num_portfolios": 20,
+  "portfolios": [
+    {
+      "strategy_indices": [
+        0,
+        1,
+        7,
+        11,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 6132.22,
+      "balance_dd": 431.40000000000055,
+      "equity_dd": 496.2243352021789,
+      "return_dd_ratio": 12.357757499945105,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.882,
+      "symbols": {
+        "AUDJPY": 2,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.992199757021043,
+      "symmetry": 0.9862955865620696
+    },
+    {
+      "strategy_indices": [
+        0,
+        1,
+        7,
+        11,
+        15
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 6027.47,
+      "balance_dd": 365.2099999999991,
+      "equity_dd": 495.8728077270865,
+      "return_dd_ratio": 12.155274308401557,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.822,
+      "symbols": {
+        "AUDJPY": 2,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9908520629309325,
+      "symmetry": 0.9500185344243026
+    },
+    {
+      "strategy_indices": [
+        1,
+        6,
+        7,
+        11,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5805.52,
+      "balance_dd": 401.1099999999997,
+      "equity_dd": 480.15596336969423,
+      "return_dd_ratio": 12.090904711996803,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.362,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.992703515962479,
+      "symmetry": 0.9695215204746521
+    },
+    {
+      "strategy_indices": [
+        1,
+        5,
+        7,
+        11,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5794.38,
+      "balance_dd": 362.55000000000064,
+      "equity_dd": 480.4361664295505,
+      "return_dd_ratio": 12.060665713536926,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.63,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9912933965368288,
+      "symmetry": 0.9495468020419954
+    },
+    {
+      "strategy_indices": [
+        0,
+        6,
+        7,
+        11,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5752.71,
+      "balance_dd": 401.1099999999997,
+      "equity_dd": 480.15596336969423,
+      "return_dd_ratio": 11.980919615426547,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.191999999999998,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9925440100074493,
+      "symmetry": 0.9595785367589134
+    },
+    {
+      "strategy_indices": [
+        0,
+        5,
+        7,
+        11,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5741.57,
+      "balance_dd": 362.55000000000064,
+      "equity_dd": 480.4361664295505,
+      "return_dd_ratio": 11.95074476317953,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.459999999999999,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9911248490100705,
+      "symmetry": 0.9733065693314464
+    },
+    {
+      "strategy_indices": [
+        1,
+        6,
+        7,
+        11,
+        15
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5700.77,
+      "balance_dd": 361.97999999999956,
+      "equity_dd": 479.8044358946018,
+      "return_dd_ratio": 11.881444966991268,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.302,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9925968694503025,
+      "symmetry": 0.9994768949097259
+    },
+    {
+      "strategy_indices": [
+        1,
+        5,
+        7,
+        11,
+        15
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5689.63,
+      "balance_dd": 323.41999999999916,
+      "equity_dd": 480.0846389544581,
+      "return_dd_ratio": 11.851306078842757,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.57,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9912703682811576,
+      "symmetry": 0.9264370963605193
+    },
+    {
+      "strategy_indices": [
+        1,
+        7,
+        11,
+        14,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5912.650000000001,
+      "balance_dd": 325.5899999999988,
+      "equity_dd": 499.30147425950946,
+      "return_dd_ratio": 11.841843665230057,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.046000000000001,
+      "symbols": {
+        "AUDJPY": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 2
+      },
+      "stability": 0.993187305946222,
+      "symmetry": 0.9843965875085963
+    },
+    {
+      "strategy_indices": [
+        1,
+        7,
+        11,
+        13,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5703.87,
+      "balance_dd": 265.9200000000001,
+      "equity_dd": 481.68943829727124,
+      "return_dd_ratio": 11.841384814586482,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.040000000000001,
+      "symbols": {
+        "AUDJPY": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 2
+      },
+      "stability": 0.9939322860977198,
+      "symmetry": 0.9831929001064471
+    },
+    {
+      "strategy_indices": [
+        1,
+        6,
+        7,
+        11,
+        16
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5789.4800000000005,
+      "balance_dd": 436.11000000000104,
+      "equity_dd": 490.1413815027538,
+      "return_dd_ratio": 11.81185718751126,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 9.648,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9907795398888557,
+      "symmetry": 0.9120195599950024
+    },
+    {
+      "strategy_indices": [
+        1,
+        5,
+        7,
+        11,
+        16
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5778.34,
+      "balance_dd": 403.58000000000084,
+      "equity_dd": 490.42158456261006,
+      "return_dd_ratio": 11.782393316055819,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 9.916,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9882227496956475,
+      "symmetry": 0.9194359821335167
+    },
+    {
+      "strategy_indices": [
+        0,
+        6,
+        7,
+        11,
+        15
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5647.96,
+      "balance_dd": 361.97999999999956,
+      "equity_dd": 479.8044358946018,
+      "return_dd_ratio": 11.771379290125367,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.132,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9922787682951046,
+      "symmetry": 0.9777706968005425
+    },
+    {
+      "strategy_indices": [
+        0,
+        5,
+        7,
+        11,
+        15
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5636.82,
+      "balance_dd": 323.41999999999916,
+      "equity_dd": 480.0846389544581,
+      "return_dd_ratio": 11.741304642189814,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.4,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9909118253340222,
+      "symmetry": 0.9607732352436913
+    },
+    {
+      "strategy_indices": [
+        0,
+        7,
+        11,
+        14,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5859.84,
+      "balance_dd": 325.5899999999988,
+      "equity_dd": 499.30147425950946,
+      "return_dd_ratio": 11.736075902220103,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 9.876,
+      "symbols": {
+        "AUDJPY": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 2
+      },
+      "stability": 0.9930840919905601,
+      "symmetry": 0.9954851898297302
+    },
+    {
+      "strategy_indices": [
+        0,
+        7,
+        11,
+        13,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5651.06,
+      "balance_dd": 265.9200000000001,
+      "equity_dd": 481.68943829727124,
+      "return_dd_ratio": 11.731749859361642,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 9.87,
+      "symbols": {
+        "AUDJPY": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 2
+      },
+      "stability": 0.9938410360762389,
+      "symmetry": 0.9801792421256182
+    },
+    {
+      "strategy_indices": [
+        0,
+        6,
+        7,
+        11,
+        16
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5736.67,
+      "balance_dd": 436.11000000000104,
+      "equity_dd": 490.1413815027538,
+      "return_dd_ratio": 11.704112765201748,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 9.478,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9903921156895217,
+      "symmetry": 0.9400051035054703
+    },
+    {
+      "strategy_indices": [
+        1,
+        7,
+        10,
+        11,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Breakout_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5626.2300000000005,
+      "balance_dd": 368.8000000000002,
+      "equity_dd": 480.7571262981131,
+      "return_dd_ratio": 11.70285304624112,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 10.347999999999999,
+      "symbols": {
+        "AUDJPY": 1,
+        "GBPAUD": 1,
+        "GBPJPY": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9892436234138632,
+      "symmetry": 0.9996439775530241
+    },
+    {
+      "strategy_indices": [
+        0,
+        5,
+        7,
+        11,
+        16
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5725.530000000001,
+      "balance_dd": 403.5800000000004,
+      "equity_dd": 490.42158456261006,
+      "return_dd_ratio": 11.67471045367304,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 9.746,
+      "symbols": {
+        "AUDJPY": 1,
+        "EURUSD": 1,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9877865947774152,
+      "symmetry": 0.8970398538388871
+    },
+    {
+      "strategy_indices": [
+        5,
+        6,
+        7,
+        11,
+        17
+      ],
+      "strategy_names": [
+        "Breakout_EA",
+        "Breakout_EA",
+        "Impulse_Continuation_EA",
+        "Pivot_Touch_Grid_EA",
+        "Impulse_Continuation_EA_v2"
+      ],
+      "total_profit": 5414.87,
+      "balance_dd": 404.2800000000002,
+      "equity_dd": 464.3677945970658,
+      "return_dd_ratio": 11.660735440748015,
+      "avg_correlation": 0.07443700311079801,
+      "sharpe": 9.940000000000001,
+      "symbols": {
+        "EURUSD": 2,
+        "GBPAUD": 1,
+        "GBPUSD": 1,
+        "USDJPY": 1
+      },
+      "stability": 0.9915740112504513,
+      "symmetry": 0.9226989989145666
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# Root-level ignores (python/ has its own .gitignore)
+__pycache__/
+*.pyc
+
+# Portfolio optimizer build artifacts (rebuild with build_exe.bat)
+portfolio_optimizer/build/
+portfolio_optimizer/dist/
+portfolio_optimizer/desktop-app/node_modules/
+portfolio_optimizer/desktop-app/dist/
+portfolio_optimizer/desktop-app/src-tauri/target/

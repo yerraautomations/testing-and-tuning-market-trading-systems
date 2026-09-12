@@ -74,7 +74,7 @@ def multi_system_mcpt(data, candidates, n_permutations=200, seed=None,
         perm (n_permutations x N array), perm_best (n_permutations array)
     """
     if n_jobs is None:
-        n_jobs = os.cpu_count()
+        n_jobs = min(os.cpu_count() or 1, 61)  # Windows caps process pools at 61 workers
     names = list(candidates)
     cands = [(k, candidates[k]) for k in names]
     n_cand = len(cands)
